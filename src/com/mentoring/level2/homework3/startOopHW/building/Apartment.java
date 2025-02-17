@@ -1,4 +1,4 @@
-package com.mentoring.level2.homework3.startOopHW;
+package com.mentoring.level2.homework3.startOopHW.building;
 
 public class Apartment {
     private final int apartmentNumber;

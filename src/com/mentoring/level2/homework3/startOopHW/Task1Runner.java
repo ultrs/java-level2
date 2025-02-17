@@ -17,6 +17,8 @@ package com.mentoring.level2.homework3.startOopHW;
 и выводит информацию о нем, его этажах, квартирах и комнатах, вызывая методы print.
  */
 
+import com.mentoring.level2.homework3.startOopHW.building.*;
+
 public class Task1Runner {
 
     public static void main(String[] args) {
