@@ -6,4 +6,5 @@ public class System extends Entity {
         super(countOfStars, size);
         this.star = star;
     }
+
 }

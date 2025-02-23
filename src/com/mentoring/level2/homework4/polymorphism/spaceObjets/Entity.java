@@ -8,4 +8,12 @@ public abstract class Entity {
         this.countOfStars = countOfStars;
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        return "Entity{" +
+                "countOfStars=" + countOfStars +
+                ", size=" + size +
+                '}';
+    }
 }

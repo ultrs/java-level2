@@ -5,4 +5,13 @@ public class Planet extends Body{
         super(name, mass, radius, atmosphere);
     }
 
+    @Override
+    public double getDiameter() {
+        return super.getDiameter();
+    }
+
+    @Override
+    public boolean isMassMore(Body obj) {
+        return super.isMassMore(obj);
+    }
 }

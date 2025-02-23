@@ -1,6 +1,8 @@
 package com.mentoring.level2.homework4.polymorphism.spaceObjets;
 
-public abstract class Body {
+import com.mentoring.level2.homework4.polymorphism.util.SpaceUtils;
+
+public abstract class Body implements SpaceUtils {
 
     private String name;
     private double mass;
@@ -14,4 +16,25 @@ public abstract class Body {
         this.atmosphere = atmosphere;
     }
 
+     public double getDiameter(){
+        return radius * 2;
+     }
+
+     public boolean isMassMore(Body obj){
+        return mass > obj.getMass();
+     }
+
+    @Override
+    public String toString() {
+        return "Body{" +
+                "name='" + name + '\'' +
+                ", mass=" + mass +
+                ", radius=" + radius +
+                ", atmosphere='" + atmosphere + '\'' +
+                '}';
+    }
+
+    public double getMass() {
+        return mass;
+    }
 }

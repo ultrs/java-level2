@@ -1,5 +1,7 @@
 package com.mentoring.level2.homework4.polymorphism.spaceObjets;
 
+import java.util.Arrays;
+
 public class Galaxy extends Entity{
     private System[] systems;
 
@@ -7,4 +9,6 @@ public class Galaxy extends Entity{
         super(countOfStars, size);
         this.systems = systems;
     }
+
+
 }
