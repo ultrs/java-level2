@@ -6,4 +6,5 @@ public interface ObjUtil {
 
     public double getDiameter();
     public boolean isMassMore(Body obj);
+
 }

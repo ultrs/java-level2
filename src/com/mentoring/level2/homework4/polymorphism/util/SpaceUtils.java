@@ -8,7 +8,7 @@ public interface SpaceUtils {
     static double getGravityForce(Body obj1, Body obj2) {
         return (GRAVITY_CONSTANT * obj1.getMass() * obj2.getMass())/(obj1.getRadius() * obj2.getRadius());
     }
-
+    void printAffiliation();
     double getMass();
     double getRadius();
 }

@@ -14,4 +14,14 @@ public class Planet extends Body{
     public boolean isMassMore(Body obj) {
         return super.isMassMore(obj);
     }
+
+    @Override
+    public void printAffiliation() {
+
+    }
+
+    @Override
+    public double getRadius() {
+        return 0;
+    }
 }

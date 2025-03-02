@@ -8,4 +8,14 @@ public class Sputnik extends Body{
         this.planet = planet;
     }
 
+
+    @Override
+    public void printAffiliation() {
+
+    }
+
+    @Override
+    public double getRadius() {
+        return 0;
+    }
 }

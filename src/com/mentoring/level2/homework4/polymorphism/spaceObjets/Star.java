@@ -8,4 +8,14 @@ public class Star extends Body{
         super(name, mass, radius, atmosphere);
         this.age = age;
     }
+
+    @Override
+    public void printAffiliation() {
+
+    }
+
+    @Override
+    public double getRadius() {
+        return 0;
+    }
 }
