@@ -18,7 +18,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 
-public class Cinema {
+public class Cinema{
 
 
     LinkedHashMap<Integer, Movie> cinema = new LinkedHashMap<Integer, Movie>();
@@ -42,4 +42,5 @@ public class Cinema {
                 "cinema=" + cinema +
                 '}';
     }
+
 }
