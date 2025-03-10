@@ -27,6 +27,13 @@ public class Student {
         return name + " " + surname;
     }
 
+    public double getAvgAssessmentList() {
+        return assessmentList.stream()
+                .mapToInt(Assessment::getAssessment)
+                .average()
+                .getAsDouble();
+    }
+
     public String getName() {
         return name;
     }
