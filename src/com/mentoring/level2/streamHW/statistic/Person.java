@@ -1,4 +1,4 @@
-package com.mentoring.level2.streamHW.newList;
+package com.mentoring.level2.streamHW.statistic;
 
 public class Person {
 
@@ -25,4 +25,9 @@ public class Person {
         return avgAssessment;
     }
 
+    @Override
+    public String toString() {
+        return "\nСтудент: " + fullName + '\'' +
+                ", средняя оценка: " + avgAssessment;
+    }
 }

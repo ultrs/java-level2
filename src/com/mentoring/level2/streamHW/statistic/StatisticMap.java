@@ -1,21 +1,19 @@
-package com.mentoring.level2.streamHW.newList;
+package com.mentoring.level2.streamHW.statistic;
 
 import com.mentoring.level2.streamHW.student.Student;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class NewStudentMap {
+public class StatisticMap {
 
     private int course;
     private double avgCourseAssessment;
     private List<String> fullName;
     private List<Person> studentsNameAndAvgAssessment;
 
-    public NewStudentMap(int course, List<Student> studentList) {
+    public StatisticMap(int course, List<Student> studentList) {
         this.course = course;
         avgCourseAssessment = setAvgCourseAssessment(studentList);
         fullName = setFullName(studentList);
@@ -42,19 +40,28 @@ public class NewStudentMap {
 
     public List<Person> setStudentsNameAndAvgAssessment(List<Student> studentList) {
 
-        List<Person> people = new ArrayList<>();
-        return studentList.stream()
+        List<Person> people = new LinkedList<>();
+        studentList.stream()
                 .filter(it -> it.getCourseNumber() == course)
-//                .flatMap(it -> it.getAssessmentList().stream())
-                .
+                .forEach(it -> {
+                    people.add(new Person(it.getFullName(), it.getAvgAssessmentList()));
+                });
+        return people;
 //                .peek(it -> {
 //                    new Person(it.getFullName(), it.getAvgAssessmentList());
 //                })
-//                .collect(Collectors.toList());
 //                .collect(Collectors.toList());
 //                .forEach(it -> {
 //                    new Person(it.getFullName(), it.getAvgAssessmentList());
 //                });
 
+    }
+
+    @Override
+    public String toString() {
+        return "Статистика курса: №" + course +
+                ", средняя оценка на курсе:" + avgCourseAssessment +
+                ", полные имена студентов:" + fullName +
+                "\nGодробная статистика студентов:" + studentsNameAndAvgAssessment;
     }
 }
