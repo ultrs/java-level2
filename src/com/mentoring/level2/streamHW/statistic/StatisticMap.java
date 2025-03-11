@@ -43,6 +43,7 @@ public class StatisticMap {
         List<Person> people = new LinkedList<>();
         studentList.stream()
                 .filter(it -> it.getCourseNumber() == course)
+                .sorted((strin1, string2) -> strin1.getFullName().compareTo(string2.getFullName()))
                 .forEach(it -> {
                     people.add(new Person(it.getFullName(), it.getAvgAssessmentList()));
                 });
@@ -62,6 +63,6 @@ public class StatisticMap {
         return "Статистика курса: №" + course +
                 ", средняя оценка на курсе:" + avgCourseAssessment +
                 ", полные имена студентов:" + fullName +
-                "\nGодробная статистика студентов:" + studentsNameAndAvgAssessment;
+                "\nПодробная статистика студентов:" + studentsNameAndAvgAssessment;
     }
 }
