@@ -35,20 +35,26 @@ public class IOUtil {
         return values;
     }
 
-    public static List<String> getResultList(List<List<String>> price, List<List<String>> name) {
+    public static List<String> getResultList(List<List<String>> price, List<List<String>> name) throws IOException {
         List<String> result = new ArrayList<>();
         String forAdd;
-        for (int i = 0; i < Math.min(name.size(), price.size()); i++) {
+        result.add("ID,NAME,PRICE");
+        for (int i = 1; i < Math.min(name.size(), price.size()); i++) {
             forAdd = name.get(i).get(0);
             forAdd += COMMA_DELIMITER;
             forAdd += name.get(i).get(1);
             forAdd += COMMA_DELIMITER;
-            for (int j = 0; j < price.size(); j++) {
-                if (price.get(j).get(0).equals(name.get(i).get(0))) //нельзя ==, нужен .equals
+            for (int j = 1; j < price.size(); j++) {
+                if (price.get(j).get(0).equals(name.get(i).get(0))) { //нельзя ==, нужен .equals
                     forAdd += price.get(j).get(1);
+                }
             }
             result.add(forAdd);
         }
+        if (result.size() != name.size() || result.size() != price.size()) {
+            createErrorFile(price, name); //доделаю
+        }
+
         return result;
     }
 
@@ -60,5 +66,15 @@ public class IOUtil {
             }
         }
     }
+    public static void createErrorFile(List<List<String>> price, List<List<String>> name) throws IOException {
+//        Path errorsResult = Path.of("resources", "errors.csv");
+//        List<String> errorsID = new ArrayList<>();
+//        if (price.contains())
+//
+//        try (BufferedWriter fileWriter = Files.newBufferedWriter(errorsResult)) {
+//
+//        }
+    }
+
 
 }
