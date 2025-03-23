@@ -39,7 +39,7 @@ public class IOUtil {
         List<String> result = new ArrayList<>();
         String forAdd;
         result.add("ID,NAME,PRICE");
-        for (int i = 1; i < Math.min(name.size(), price.size()); i++) {
+        for (int i = 1; i < name.size(); i++) {
             forAdd = name.get(i).get(0);
             forAdd += COMMA_DELIMITER;
             forAdd += name.get(i).get(1);
@@ -52,9 +52,9 @@ public class IOUtil {
             result.add(forAdd);
         }
         if (result.size() != name.size() || result.size() != price.size()) {
-            createErrorFile(price, name); //доделаю
-        }
+            createErrorFile(name, price);
 
+        }
         return result;
     }
 
@@ -66,15 +66,31 @@ public class IOUtil {
             }
         }
     }
-    public static void createErrorFile(List<List<String>> price, List<List<String>> name) throws IOException {
-//        Path errorsResult = Path.of("resources", "errors.csv");
-//        List<String> errorsID = new ArrayList<>();
-//        if (price.contains())
-//
-//        try (BufferedWriter fileWriter = Files.newBufferedWriter(errorsResult)) {
-//
-//        }
+
+    private static void createErrorFile(List<List<String>> firstList, List<List<String>> secondList) throws IOException {
+        Path result = Path.of("resources", "errors.csv");
+        List<String> errorResultList = new ArrayList<>();
+        errorResultList.add("ID");
+        errorResultList.addAll(getErrorsIDList(firstList, secondList));
+        errorResultList.addAll(getErrorsIDList(secondList, firstList));
+        getResultFile(errorResultList, result);
     }
 
+    private static List<String> getErrorsIDList(List<List<String>> firstList, List<List<String>> secondList){
+        List<String> errorResultList = new ArrayList<>();
+        int flag = 0;
+        for (int i = 1; i < firstList.size(); i++) {
+            for (int j = 1; j < secondList.size(); j++) {
+                if (firstList.get(i).get(0).equals(secondList.get(j).get(0))) {
+                    flag = 1;
+                }
+            }
+            if (flag != 1) {
+                errorResultList.add(firstList.get(i).get(0));
+            }
+            flag = 0;
+        }
+        return errorResultList;
+    }
 
 }
