@@ -15,9 +15,11 @@ public class CristalCollection {
         cristalSize = 0;
     }
 
-    public CristalCollection(CristalColor cristalColor) {
-        this.cristalColor = cristalColor;
-        this.cristalSize = 0;
+    public int getCristalSize() {
+        return cristalList.size();
+    }
+
+    public void addCristal() {
         cristalList.add(RandomUtil.getRandomCristalColor());
     }
 
