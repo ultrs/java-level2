@@ -8,12 +8,14 @@ import java.util.Random;
 public class RandomUtil {
 
     private static final Random RANDOM = new Random();
+    private static final int BOUND = 4;
+    private static final int BOUND_CORRECTION = 2;
 
     private RandomUtil() {
     }
 
     public static int getRandomCristalSize() {
-        return RANDOM.nextInt(4) + 2;
+        return RANDOM.nextInt(BOUND) + BOUND_CORRECTION;
     }
 
     public static CristalColor getRandomCristalColor() {

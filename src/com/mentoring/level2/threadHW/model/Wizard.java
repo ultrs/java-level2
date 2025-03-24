@@ -7,10 +7,22 @@ import java.util.Map;
 public class Wizard {
 
     private final String name;
-    private CristalCollection cristalCollection;
+    private final CristalColor cristalColor;
+    private CristalCollection wizardCristalCollection;
 
-    public Wizard(String name, CristalCollection cristalCollection) {
+    public Wizard(String name, CristalColor cristalColor) {
         this.name = name;
-        this.cristalCollection = cristalCollection;
+        this.cristalColor = cristalColor;
+        wizardCristalCollection = new CristalCollection();
+    }
+
+    public void getCristal(Planet planet) {
+        if(planet.checkForClear()){
+            System.out.println("На планете нет кристалов.");
+        } else {
+            int startSize = planet.getPlanetCristalCollection().getCristalSize();
+            planet.getPlanetCristalCollection().removeCristal(cristalColor);
+            wizardCristalCollection.addCristalCollectionSize(startSize - planet.getPlanetCristalCollection().getCristalSize());
+        }
     }
 }

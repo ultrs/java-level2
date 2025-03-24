@@ -9,16 +9,24 @@ import static com.mentoring.level2.threadHW.util.RandomUtil.getRandomCristalSize
 public class Planet {
 
     private final String name;
-    private CristalCollection cristalCollection;
+    private CristalCollection planetCristalCollection;
 
     public Planet(String name) {
         this.name = name;
-        cristalValue = new HashMap<CristalColor, Integer>();
+        planetCristalCollection = new CristalCollection();
     }
 
     public void newDayCristalGenerator(){
         for (int i = 0; i < getRandomCristalSize(); i++) {
-            cristalValue.put(getRandomCristalColor(), getRandomCristalSize());
+            planetCristalCollection.addCristal();
         }
+    }
+
+    public boolean checkForClear(){
+        return planetCristalCollection.getCristalSize() == 0 ? true : false;
+    }
+
+    public CristalCollection getPlanetCristalCollection() {
+        return planetCristalCollection;
     }
 }
